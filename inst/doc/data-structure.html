@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Data Structure</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Data Structure</h1>
+
+
+
+<p>The information about each dataset is spread across two files, a
+<strong>metadata file</strong> and a <strong>data file</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>The <strong>metadata file</strong> contains information about the
+columns in the <strong>data file</strong>, as well as lookup table(s)
+for translating integer codes found in certain columns of the
+<strong>data file</strong> into plain-English descriptions (if
+applicable)</li>
+<li>The <strong>data file</strong> contains the actual raw,
+comma-separated Call Report data, without headers</li>
+</ol>
+<p>Metadata file names start with “D_”. We can use the file naming
+conventions to link each <strong>metadata file</strong> with its
+corresponding <strong>data file</strong>.</p>
+<div id="metadata-files" class="section level3">
+<h3>Metadata Files</h3>
+<p>Each metadata file, in essence, contains the following information
+about the variables in the corresponding data file:</p>
+<ul>
+<li>Variable name</li>
+<li>Field type</li>
+<li>Decimal positions</li>
+<li>Variable description</li>
+</ul>
+<p>Metadata is stored by FCA in a way that is not straightforward to
+process:</p>
+<ul>
+<li>Each metadata file has a description header that can span across
+multiple lines</li>
+<li>Information about a variable is not stored in a single line, as
+variable descriptions can span across multiple lines (in an inconsistent
+way)</li>
+<li>Some metadata files have variable names that are preceded by two
+asterisks (**). These asterisks are used to denote multiple-occurrence
+columns and the first of them corresponds to a variable that stores
+codes. Files with multiple-occurrence columns end with a NOTE that can
+span across multiple lines.</li>
+</ul>
+<p>Nevertheless, there are some features of metadata files that come in
+handy:</p>
+<ul>
+<li>Variable names are a single word (i.e., variable names are not
+separated by spaces)</li>
+<li>Field type is either “Numeric” or “Alphanum.” and is always placed
+after a variable name</li>
+<li>Decimal position is a single-digit integer that is always placed
+after field type.</li>
+</ul>
+<p>These features allow us to use regular expressions to process
+metadata files.</p>
+<div id="metadata-file-scenarios" class="section level4">
+<h4>Metadata File Scenarios</h4>
+<p>For the purposes of parsing files to create tidy data frames, the
+metadata files are classified into the following unique scenarios:</p>
+<ul>
+<li>Scenario 1: All variables are single-occurrence (i.e., no variable
+is preceded by two asterisks). This scenario is referred to as
+“single”.</li>
+<li>Scenario 2: A set of single-occurrence variables is followed by a
+set of multiple-occurrence variables. This scenario will be referred as
+“single_multiple”.</li>
+<li>Scenario 3: A set of single-occurrence variables followed by a set
+of multiple-occurrence variables is followed by a second set of
+single-occurrence variables. This scenario will be referred as
+“single_multiple_single”.</li>
+</ul>
+<p>This classification is important because the corresponding data file
+will have a different structure depending on the scenario.</p>
+</div>
+</div>
+<div id="data-files" class="section level3">
+<h3>Data Files</h3>
+<p>In general terms, the processing workflow of data files involves:</p>
+<ol style="list-style-type: decimal">
+<li>Reading data</li>
+<li>Applying column names</li>
+<li>Performing pivot operations (if necessary)</li>
+</ol>
+<p>Specific pivot operations depend on the <a href="#metadata-file-scenarios">scenario</a> of the corresponding
+metadata file</p>
+<div id="scenario-1-single" class="section level4">
+<h4>Scenario 1 (“single”)</h4>
+<p>This is the simplest scenario. The data in the data file is already
+in the expected format, and the only task is to apply the column names
+specified in the metadata file.</p>
+</div>
+<div id="scenario-2-single_multiple" class="section level4">
+<h4>Scenario 2 (“single_multiple”)</h4>
+<p>In this case, the data in the <strong>data file</strong> does not
+adhere to “tidy” principles. The multiple-occurrence columns are
+repeated for each class within the “code” variable. To help clarify the
+previous statement, consider a <strong>data file</strong> has following
+(mock) column names:</p>
+<ul>
+<li><code>ColumnA</code></li>
+<li><code>ColumnB</code></li>
+<li><code>Code1</code></li>
+<li><code>Metric1_Code1</code></li>
+<li><code>Metric2_Code1</code></li>
+<li><code>Code2</code></li>
+<li><code>Metric1_Code2</code></li>
+<li><code>Metric2_Code2</code></li>
+</ul>
+<p>The corresponding <strong>metadata file</strong> would likely list
+the column names as:</p>
+<ul>
+<li><code>ColumnA</code></li>
+<li><code>ColumnB</code></li>
+<li><code>Code</code></li>
+<li><code>Metric1</code></li>
+<li><code>Metric2</code></li>
+</ul>
+<p>This creates a mismatch between the number of columns identified in
+the <strong>metadata file</strong> (5) and the number of columns in the
+corresponding <strong>data file</strong> (8). To properly apply column
+names to the <strong>data file</strong>, the total number of distinct
+codes in the <code>Code</code> column must be determined. Once the
+column names have been appropriately applied to the <strong>data
+file</strong>, we complete the data processing by applying both long and
+wide pivots.</p>
+</div>
+<div id="scenario-3-single_multiple_single" class="section level4">
+<h4>Scenario 3 (“single_multiple_single”)</h4>
+<p>This is the most complex scenario, currently applicable to only one
+data file (<em>RCR7</em>). Unlike Scenario 2, there is an additional set
+of single-occurrence columns that follow a set of multiple-occurrence
+columns. For each observation in the <strong>data file</strong>, there
+is a row that contains comma-separated values of variables that belong
+to the first set of single-occurrence columns, followed by a row for
+each class of the ‘code’ variable with comma-separated values of
+multiple-occurrence variables, and finally, a row that contains
+comma-separated values of the remaining single-occurrence columns.</p>
+<p>In this case, the initial step of reading the data involves
+concatenating lines corresponding to the same observation (using loops).
+Once the data is read, the processing is similar to Scenario 2, except
+when naming the columns it is necessary to consider that the repeating
+columns are in the middle of the dataset. After naming the columns, the
+processing is the same as in Scenario 2. The resulting dataset differs
+from the metadata file in that it places all single-occurrence columns
+at the beginning.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
