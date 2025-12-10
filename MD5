@@ -1,12 +1,12 @@
-ce31dfa772e45b40ec88998bd720c0d2 *DESCRIPTION
+38b777f4dfef5b4795af6dd34210b6b9 *DESCRIPTION
 9bbfd390e81167dd358b33ecf320d94c *LICENSE
 91ee3c218ba7a179a487141a9ee5362d *NAMESPACE
-8691c84346049faba93a7f4fd457c7af *NEWS.md
+5a1fdfe5bdc79206ebe9be1efa415adf *NEWS.md
 a0378f9f8e07464a545401d60ca5b3a1 *R/compare_metadata.R
 8bd32c11c955f53b65d760615c0a0d51 *R/data.R
-72bd40c9692606100dbadd1ac15bfe36 *R/download_data.R
+c0d193399102746c4c0edf0626a5cd7d *R/download_data.R
 fdd91f6f90f38c1e28171a84b3fe881c *R/process_data.R
-73b84fa4ebb13c113fa3cda8b02831d4 *README.md
+670e17dfc61792d736be1624c66dfb6f *README.md
 6dd4c98969653ec6129a5e51449d493d *build/vignette.rds
 9818e3bd8cc19c62767c6ecab6fdbbe0 *data/RCB2__AssetCodeRCB2.rda
 e121d492d1d6a539ed4bb62a0a816a10 *data/RCB3__DebtMaturityCode.rda
@@ -42,7 +42,7 @@ ad2a703fb449757c0e751a1df66af953 *man/RCO__ASSET_CODE.Rd
 a996d3a04e18f4c7f737e873af81aa01 *man/RIE1__ACLCode.Rd
 d15fd062c47e509e721e32f0ab1397b9 *man/compare_files_content.Rd
 c665924c774f95fa199ae607dacfb8a1 *man/compare_metadata.Rd
-a3c9c411061183110d79dea0f86220b5 *man/download_data.Rd
+7aed22b9fec013be57f0953e5540d90e *man/download_data.Rd
 1d603d3557ea11cdb773c2912eb10e78 *man/figures/fcall-example-plot.png
 a04d928be30dd24edfda93a695a1145d *man/figures/logo.png
 c81931cc23a69f19acb808b22c2d3501 *man/file_metadata.Rd

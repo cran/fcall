@@ -1,7 +1,7 @@
 Package: fcall
 Title: Parse Farm Credit Administration Call Report Data into Tidy Data
         Frames
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(
     person("Michael", "Thomas", email = "mthomas@ketchbrookanalytics.com",
            role = c("aut", "cre")),
@@ -29,10 +29,10 @@ BugReports: https://github.com/ketchbrookanalytics/fcall/issues
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2025-11-14 15:24:52 UTC; root
+Packaged: 2025-12-10 19:27:20 UTC; root
 Author: Michael Thomas [aut, cre],
   Ivan Millanes [aut],
   Ketchbrook Analytics [cph, fnd]
 Maintainer: Michael Thomas <mthomas@ketchbrookanalytics.com>
 Repository: CRAN
-Date/Publication: 2025-11-19 19:00:07 UTC
+Date/Publication: 2025-12-10 19:40:02 UTC
