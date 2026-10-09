@@ -1,7 +1,7 @@
 Package: fcall
 Title: Parse Farm Credit Administration Call Report Data into Tidy Data
         Frames
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: c(
     person("Michael", "Thomas", email = "mthomas@ketchbrookanalytics.com",
            role = c("aut", "cre")),
@@ -18,21 +18,21 @@ Description: Parses financial condition and performance data (Call Reports) for
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.3
 Depends: R (>= 4.1)
-Imports: cli, dplyr, glue, purrr, rlang, stringr, tibble, tidyr, utils,
+Imports: dplyr, glue, purrr, rlang, stringr, tibble, tidyr, utils,
         waldo
-Suggests: knitr, rmarkdown, testthat (>= 3.0.0), withr
+Suggests: curl, knitr, rmarkdown, testthat (>= 3.0.0), withr
 URL: https://ketchbrookanalytics.github.io/fcall/,
         https://github.com/ketchbrookanalytics/fcall
 BugReports: https://github.com/ketchbrookanalytics/fcall/issues
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0
 NeedsCompilation: no
-Packaged: 2025-12-10 19:27:20 UTC; root
+Packaged: 2026-10-09 18:45:06 UTC; root
 Author: Michael Thomas [aut, cre],
   Ivan Millanes [aut],
   Ketchbrook Analytics [cph, fnd]
 Maintainer: Michael Thomas <mthomas@ketchbrookanalytics.com>
 Repository: CRAN
-Date/Publication: 2025-12-10 19:40:02 UTC
+Date/Publication: 2026-10-09 19:00:02 UTC
